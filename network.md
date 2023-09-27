@@ -15,14 +15,14 @@ Containers can also communicate privately with each other using Docker's built-i
 
 To create a Docker network, you can use the `docker network create` command. Here are some essential options:
 
-- `--name <name>`: Assign a custom name to the network.
+- `<name>`: Assign a custom name to the network.
 - `--driver <driver>`: Specify the network driver (default is 'bridge').
 - `--subnet <subnet>`: Define a custom subnet for the network.
 - `--gateway <gateway>`: Set a custom gateway for the network.
 
 Example:
 ```bash
-docker network create --name my_network --driver bridge --subnet 172.18.0.0/16 --gateway 172.18.0.1 my_network
+docker network create <name> --driver bridge --subnet 172.18.0.0/16 --gateway 172.18.0.1 my_network
 ```
 
 ## Listing Networks 📋
