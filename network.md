@@ -22,7 +22,7 @@ To create a Docker network, you can use the `docker network create` command. Her
 
 Example:
 ```bash
-docker network create <name> --driver bridge --subnet 172.18.0.0/16 --gateway 172.18.0.1 my_network
+docker network create <name> --driver bridge --subnet <subnet> (eg. 172.18.0.0/16) --gateway <gateway> (eg. 172.18.0.1)
 ```
 
 ## Listing Networks 📋
@@ -34,22 +34,39 @@ Example:
 docker network ls
 ```
 
+Options:
+
+- `-f, --filter <filter>`: Filter output by network properties. For example, `docker network ls -f name=<network>` will only list the network named `<network> (eg. my_network)`.
+
 ## Inspecting Networks 🔍
 
 To view details about a specific network, use the `docker network inspect` command:
 
 Example:
 ```bash
-docker network inspect my_network
+docker network inspect <network>
 ```
+
+Options:
+
+- `-f, --format <format>`: Specify the output format (json or text).
+- `-q, --quiet`: Only print the network ID.
+
 
 ## Connecting Containers 🌐
 
 To connect a container to a network, you can use the `docker network connect` command:
 
+To connect a container to a network, you can use the docker network connect command:
+
+Options:
+
+- `-f, --force`: Force the container to connect to the network, even if it is already running.
+- `-l, --link <container>`: Link the container to another container on the same network.
+
 Example:
 ```bash
-docker network connect my_network my_container
+docker network connect <network> <container>
 ```
 
 ## Disconnecting Containers 🚫
@@ -58,16 +75,19 @@ To disconnect a container from a network, use the `docker network disconnect` co
 
 Example:
 ```bash
-docker network disconnect my_network my_container
+docker network disconnect <network> <container>
 ```
 
 ## Removing Networks 🗑️
 
 To remove a Docker network, you can use the `docker network rm` command:
 
+Options:
+- `-f, --force`: Force the network to be removed, even if it is in use by containers.
+
 Example:
 ```bash
-docker network rm my_network
+docker network rm <network>
 ```
 
-Docker networks play a crucial role in container orchestration, enabling you to create complex and scalable applications. By mastering these commands and options, you can efficiently manage container networking for your Dockerized applications. 🚀
+Docker networks play a crucial role in container orchestration, enabling you to create complex and scalable applications. 🚀

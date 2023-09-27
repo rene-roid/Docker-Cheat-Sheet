@@ -14,7 +14,9 @@ To create a Docker container, you can use the `docker run` command. Here are som
 
 Example:
 ```bash
-docker container run -d --name my_container -p 3000:3000 --network my_network nginx:latest
+docker container run -d --name <name> -p <host_port>:<container_port> --network <network> --rm <image>
+```
+```
 ```
 
 ## Managing Containers 📊
@@ -30,9 +32,10 @@ Once containers are running, you can manage them with various commands:
 - `docker container unpause <container>`: Unpause a paused container.
 - `docker container rm <container>`: Remove a stopped container.
 
+You can also remove multiple containers at once by passing a list of container IDs or names to the docker container rm command:
 Example:
 ```bash
-docker container stop my_container
+docker container stop <container1> <container2>
 ```
 
 ## Inspecting Containers 🔍
@@ -43,7 +46,7 @@ You can inspect container details using the `docker container inspect` command:
 
 Example:
 ```bash
-docker container inspect my_container
+docker container inspect <container>
 ```
 
 ## Logs and Executing Commands 📝💻
@@ -55,17 +58,17 @@ To view container logs and execute commands inside a running container, you can 
 
 Example:
 ```bash
-docker container logs my_container
-docker container exec -it my_container bash
+docker container logs <container>
+docker container exec -it <container> <command> (e.g. bash)
 ```
 
 ## Removing Containers 🗑️
 
-To remove containers, you can use the `docker container rm` command. Be cautious, as this action is irreversible.
+To remove containers, you can use the `docker container rm` command. Be cautious, as this action is irreversible. You can also remove multiple containers at once by passing a list of container IDs or names to the docker container rm command:
 
 Example:
 ```bash
-docker container rm my_container
+docker container rm <container1> <container2>
 ```
 
-Docker provides a rich set of commands and options to manage containers effectively. By understanding and using these commands, you can harness the full power of Docker for containerized application development and deployment. 🚀
+Docker provides a rich set of commands and options to manage containers effectively. 🚀
