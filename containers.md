@@ -3,20 +3,27 @@
 Docker is a powerful platform for developing, shipping, and running applications inside containers. Containers are lightweight, isolated environments that package an application and its dependencies, making it easy to deploy and manage applications consistently across different environments.
 
 ## Creating Containers 🏗️
+To create and run a container from an image, use the command:
 
-To create a Docker container, you can use the `docker run` command. Here are some of the commonly used options:
-
-- `-d, --detach`: Run the container in the background.
-- `--name <name>`: Assign a custom name to the container.
-- `-p, --publish <host_port>:<container_port>`: Map a port from the host to the container.
-- `--network <network>`: Connect the container to a specific Docker network.
-- `--rm`: Automatically remove the container when it exits.
-
-Example:
 ```bash
-docker container run -d --name <name> -p <host_port>:<container_port> --network <network> --rm <image>
+docker container run [Options] IMAGE [COMMANDS] [ARGS...]
 ```
-```
+
+This will pull the image from a registry if it is not available locally, and then create and start a container from it.
+
+Some common options are:
+
+- `--detach` or `-d`: Run the container in the background and print the container ID.
+- `--publish` or `-p`: Publish a container's port(s) to the host. The format is `<host_port:container_port>`.
+- `--name <container_name>`: Assign a name to the container.
+- `--network <network_name>` or `--net`: Connect the container to a network.
+- `--rm`: Automatically remove the container when it exits.
+- `-it`: Run the container interactively.
+
+For example, to run a container named `webserver` from the `nginx` image in the background and publish port 80 to port 8080 on the host, use the command:
+
+```bash
+docker container run --detach --publish 8080:80 --name webserver nginx
 ```
 
 ## Managing Containers 📊
@@ -25,29 +32,21 @@ Once containers are running, you can manage them with various commands:
 
 - `docker container ps`: List all running containers.
 - `docker container ps -a`: List all containers (including stopped ones).
-- `docker container stop <container>`: Stop a running container.
-- `docker container start <container>`: Start a stopped container.
-- `docker container restart <container>`: Restart a container.
-- `docker container pause <container>`: Pause a running container.
-- `docker container unpause <container>`: Unpause a paused container.
-- `docker container rm <container>`: Remove a stopped container.
+- `docker container stop <container> ...`: Stop a running container.
+- `docker container start <container> ...`: Start a stopped container.
+- `docker container restart <container> ...`: Restart a container.
+- `docker container pause <container> ...`: Pause a running container.
+- `docker container unpause <container> ...`: Unpause a paused container.
+- `docker container rm <container> ...`: Remove a stopped container.
 
-You can also remove multiple containers at once by passing a list of container IDs or names to the docker container rm command:
-Example:
-```bash
-docker container stop <container1> <container2>
-```
 
 ## Inspecting Containers 🔍
 
-You can inspect container details using the `docker container inspect` command:
-
 - `docker container inspect <container>`: Display detailed information about a container.
+- `docker container logs <container>`: Display the logs of a container.
+- `docker container top <container>`: Display the running processes of a container.
+- `docker container stats <container>`: Display a live stream of container resource usage statistics.
 
-Example:
-```bash
-docker container inspect <container>
-```
 
 ## Logs and Executing Commands 📝💻
 
@@ -63,12 +62,55 @@ docker container exec -it <container> <command> (e.g. bash)
 ```
 
 ## Removing Containers 🗑️
+To remove one or more containers, use the command:
 
-To remove containers, you can use the `docker container rm` command. Be cautious, as this action is irreversible. You can also remove multiple containers at once by passing a list of container IDs or names to the docker container rm command:
-
-Example:
 ```bash
-docker container rm <container1> <container2>
+docker container rm <id_of_container> <id>...
+```
+
+This will delete the containers from the docker system. The containers must be stopped before they can be removed.
+
+Some common options are:
+- `-f` or `--force`: Force remove a running container.
+
+## Start new container interactively
+To start a new container and attach an interactive shell to it, use the command:
+
+```bash
+docker container run -it IMAGE [COMMANDS] [ARGS...]
+```
+
+This will create and run a container from an image, and open a terminal session to it. You can use any commands inside the container as if you were logged into it.
+
+The options are:
+
+- `-t` or `--tty`: Allocate a pseudo-TTY.
+- `-i` or `--interactive`: Keep STDIN open even if not attached.
+
+For example, to start a new container from the `ubuntu` image and run a bash shell, use the command:
+
+```bash
+docker container run -it ubuntu bash
+```
+
+## Run additional command in existing container
+To run an additional command in an existing container, use the command:
+
+```bash
+docker container exec -it <container_name> [COMMANDS] [ARGS...]
+```
+
+This will execute a command in a running container and attach an interactive shell to it. You can use any commands inside the container as if you were logged into it.
+
+The options are:
+
+- `-t` or `--tty`: Allocate a pseudo-TTY.
+- `-i` or `--interactive`: Keep STDIN open even if not attached.
+
+For example, to run a bash shell in an existing container named `webserver`, use the command:
+
+```bash
+docker container exec -it webserver bash
 ```
 
 Docker provides a rich set of commands and options to manage containers effectively. 🚀
