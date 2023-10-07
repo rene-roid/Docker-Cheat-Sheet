@@ -29,7 +29,7 @@ Some common options are:
 - `--name <container_name>`: Assign a name to the container.
 - `--network <network_name>` or `--net`: Connect the container to a network.
 - `--rm`: Automatically remove the container when it exits.
-- `-it`: Run the container interactively.
+- `-it`: Run the container interactively (open a terminal session to it).
 
 For example, to run a container named `webserver` from the `nginx` image in the background and publish port 80 to port 8080 on the host, use the command:
 
