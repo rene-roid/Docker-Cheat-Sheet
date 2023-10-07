@@ -2,6 +2,18 @@
 
 Docker networks allow containers to communicate with each other, both within the same host and across different hosts. They provide isolation and flexibility in defining how containers interact with each other. Let's explore the Docker network commands and their options:
 
+# Table of Contents
+
+1. [Container Networking](#container-networking-🌐)
+    1. [Public Communication](#public-communication-🌐)
+    2. [Private Communication](#private-communication-🌐)
+2. [Creating Networks](#creating-networks-🏗️)
+3. [Listing Networks](#listing-networks-📋)
+4. [Inspecting Networks](#inspecting-networks-🔍)
+5. [Connecting Containers](#connecting-containers-🌐)
+6. [Disconnecting Containers](#disconnecting-containers-🚫)
+7. [Removing Networks](#removing-networks-🗑️)
+
 ## Container Networking 🌐
 
 Containers can communicate with the outside world through public networks. By default, they can access external services, making them suitable for internet-facing applications.

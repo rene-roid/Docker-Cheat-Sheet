@@ -2,6 +2,17 @@
 
 Docker is a powerful platform for developing, shipping, and running applications inside containers. Containers are lightweight, isolated environments that package an application and its dependencies, making it easy to deploy and manage applications consistently across different environments.
 
+# Table of Contents
+
+1. [Creating Containers](#creating-containers-🏗️)
+2. [Managing Containers](#managing-containers-📊)
+3. [Inspecting Containers](#inspecting-containers-🔍)
+4. [Logs and Executing Commands](#logs-and-executing-commands-📝💻)
+5. [Removing Containers](#removing-containers-🗑️)
+6. [Start New Container Interactively](#start-new-container-interactively)
+7. [Run Additional Command in Existing Container](#run-additional-command-in-existing-container)
+
+
 ## Creating Containers 🏗️
 To create and run a container from an image, use the command:
 
