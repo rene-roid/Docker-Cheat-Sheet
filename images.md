@@ -120,6 +120,3 @@ docker image push reneroid/nginx:latest
 Docker images are a powerful tool for packaging and distributing applications. Understanding how to create, manage, and use Docker images is fundamental to working with containers effectively.
 
 Feel free to refer to this documentation for guidance on Docker images in your containerization journey. Happy containerizing! 🚀
-```
-
-Now, the documentation includes emojis for a more engaging and visually appealing presentation.
