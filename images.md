@@ -106,9 +106,24 @@ docker image push [target image:tag]
 A real example would be something like: 
     
 ```bash
-docker image push reneroid/nginx:latest
+docker image push reneroid/nginx:latest # username/imagename:tag
 ```
 
+## Cleaning Up 🧹
+You can use the `docker image prune` command to remove unused images:
+
+Some options include:
+- `-a` to remove all unused images
+
+```bash
+docker image prune # Remove clean up dangling images
+```
+
+```bash
+docker system prune # Clean up everything you're not currently using
+```
+
+To see the disk space used by Docker, use the `docker system df` command:
 ## Best Practices 🛠️
 
 - Keep images small by minimizing the number of layers and using a minimal base image.
